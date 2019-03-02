@@ -5,6 +5,9 @@ import WayList from '../views/wayList'
 import WayEdit from '../views/wayEdit'
 import Design from '../views/design'
 import OuterHTML from '../views/OuterHTML'
+import Login from '../views/login'
+import Register from '../views/register'
+import FindPass from '../views/findPass'
 
 Vue.use(Router)
 
@@ -34,6 +37,21 @@ export default new Router({
       path: '/outerHTML',
       name: 'OuterHTML',
       component: OuterHTML
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: Register
+    },
+    {
+      path: '/findPass',
+      name: 'findPass',
+      component: FindPass
     }
   ]
 })

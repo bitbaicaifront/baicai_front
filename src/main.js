@@ -7,6 +7,10 @@ import router from './router'
 import iView from 'iview';
 import 'iview/dist/styles/iview.css';
 import VueResource from 'vue-resource';
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
+Vue.use(VueAxios, axios)
 
 Vue.use(VueResource);
 Vue.use(VueRouter);
