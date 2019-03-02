@@ -2,7 +2,7 @@
   <div class="note" :style ="note">
     <Form ref="formInline" :model="formInline" :rules="ruleInline" inline>
       <FormItem prop="user">
-        <Input type="text" v-model="formInline.user" placeholder="账号">
+        <Input type="text" v-model="formInline.account" placeholder="账号">
           <Icon type="ios-person-outline" slot="prepend"></Icon>
         </Input>
       </FormItem>
@@ -33,11 +33,11 @@
         data () {
           return {
             formInline: {
-              user: '',
+              account: '',
               password: ''
             },
             ruleInline: {
-              user: [
+              account: [
                 {required: true, message: '请输入账号', trigger: 'blur'}
               ],
               password: [
@@ -50,12 +50,13 @@
         handleSubmit(name) {
           this.$refs[name].validate((valid) => {
             if (valid) {
+              alert(",,,");
               let param = new URLSearchParams();
-              param.append("plan_code", value);
-              param.append("plan_name", '');
+              param.append("account", this.formInline.account);
+              param.append("password", this.formInline.password);
 
               this.axios({
-                url: "api/plan/apply/validate",
+                url: "api/login",
                 method: "post",
                 headers: {
                   'Content-Type': 'application/x-www-form-urlencoded'
@@ -63,13 +64,7 @@
                 withCredentials: "include",
                 params: param
               }).then((res) => {
-                let data = res.data;
-                if (data.state == 1) {
-                  //callback(new Error('机构编码已存在'));
-                  return callback(new Error('方案编码已存在'));
-                } else {
-                  callback();
-                }
+                alert("...");
               }).catch(function (err) {
                 console.log("异常原因：" + err);
               });
