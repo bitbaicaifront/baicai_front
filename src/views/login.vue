@@ -50,7 +50,7 @@
         handleSubmit(name) {
           this.$refs[name].validate((valid) => {
             if (valid) {
-              alert(",,,");
+              // alert(",,,");
               let param = new URLSearchParams();
               param.append("account", this.formInline.account);
               param.append("password", this.formInline.password);
